@@ -1,4 +1,4 @@
-name: Xontik Auto Build
+name: Xontik Final Build
 on:
   push:
     branches:
