@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
           flutter-version: '3.10.0'
       - run: flutter pub get
       - run: flutter build apk --release --no-tree-shake-icons
-      - name: Upload Xontik APK
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: Xontik-App
