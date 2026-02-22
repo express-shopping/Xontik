@@ -1401,3 +1401,4 @@ class _CameraScreenState extends State<CameraScreen> with SingleTickerProviderSt
   );
 }
 
+// Build Trigger
