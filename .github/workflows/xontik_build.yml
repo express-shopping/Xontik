@@ -1,5 +1,9 @@
 name: Xontik Auto Build
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   release:
