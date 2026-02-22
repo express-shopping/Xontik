@@ -66,5 +66,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+        <key>NSCameraUsageDescription</key>
+<string>نحتاج للكاميرا لتصوير فيديوهات Xontik</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>نحتاج للميكروفون لتسجيل الصوت مع الفيديو</string>
+
 </dict>
 </plist>
