@@ -167,23 +167,18 @@ class _MainTikTokScaffoldState extends State<MainTikTokScaffold> {
       context: context,
       backgroundColor: Colors.black,
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-      builder: (context) => Container(
+            builder: (context) => Container(
         height: 250,
-        padding: const EdgeInsets.all(20),
+        color: Colors.black87,
         child: Column(
           children: [
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(10))),
-            const SizedBox(height: 30),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              _uploadBtn(Icons.videocam, "كاميرا", Colors.purple, () {
-                Navigator.pop(context); // إغلاق القائمة
-                Navigator.push(context, MaterialPageRoute(builder: (c) => const CameraScreen())); // فتح صفحة الكاميرا
-              }),
-              _uploadBtn(Icons.image, "صور", Colors.blue),
-              _uploadBtn(Icons.upload_file, "رفع فيديو", Colors.redAccent),
-            ]),
-            const Spacer(),
-            TextButton(onPressed: () => Navigator.pop(context), child: const Text("إلغاء", style: TextStyle(color: Colors.white, fontSize: 16)))
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround, 
+              children: [
+                _uploadBtn(Icons.videocam, "كاميرا", Colors.purple), // السطر 178 المعدل
+              ],
+            ),
           ],
         ),
       ),
@@ -401,21 +396,6 @@ class _VideoItemState extends State<VideoItem> {
 
 
   // الدوال المساعدة الأصلية للفيديو
-  Widget _sideProfile() => Stack(clipBehavior: Clip.none, children: [
-    const CircleAvatar(radius: 25, backgroundColor: Colors.white, child: CircleAvatar(radius: 23, child: Icon(Icons.person))),
-    Positioned(
-      bottom: -8, 
-      left: 15, 
-      child: GestureDetector(
-        onTap: () => setState(() => _isFollowed = !_isFollowed),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          decoration: BoxDecoration(color: _isFollowed ? Colors.green : Colors.red, shape: BoxShape.circle),
-          child: Icon(_isFollowed ? Icons.check : Icons.add, size: 18, color: Colors.white),
-        ),
-      ),
-    )
-  ]);
 
   Widget _sideAction(IconData i, String l, Color c) => Column(
     children: [
@@ -430,7 +410,6 @@ class _VideoItemState extends State<VideoItem> {
     decoration: BoxDecoration(shape: BoxShape.circle, gradient: SweepGradient(colors: [Colors.black, Colors.grey[800]!, Colors.black])),
     child: const Icon(Icons.music_note, size: 18, color: Colors.white),
   );
-}
 
 // --- واجهة تعديل الملف الاحترافية (XONTIK) ---
 class EditProfileScreen extends StatefulWidget {
@@ -887,7 +866,7 @@ Widget _buildProLiveBadge() {
       children: [
         const Icon(Icons.sensors, size: 14, color: Colors.white),
         const SizedBox(width: 4),
-        Text("LIVE", style: TextStyle(color: Colors.white, fontWeight: FontWeight.black, letterSpacing: 1.5, fontSize: 12)),
+        Text("LIVE", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.5, fontSize: 12)),
       ],
     ),
   );
@@ -957,6 +936,7 @@ class InboxScreen extends StatelessWidget {
     subtitle: Text(user.lastMsg, style: const TextStyle(color: Colors.white54)),
     trailing: const Text("١٢:٤٠ م", style: TextStyle(fontSize: 10, color: Colors.grey)),
   );
+ }
 }
 
 
